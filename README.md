@@ -14,3 +14,6 @@
 * Chèn đỉnh
 * Xóa đỉnh
 * Duyệt cây tìm kiếm nhị phân 
+    * Pre-order traversal  [Node -> L -> R]
+    * In-order traversal   [L -> Node -> R]
+    * Post-order traversal [L -> R .> Node]
