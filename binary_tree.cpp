@@ -152,9 +152,38 @@ TreeNode* remove(TreeNode* root, int x){
     }
 }
 
+// Node -> L -> R
+void preOrder_traversal(TreeNode* root){
+    if (root == NULL) return ;
+    // Current node
+    cout << root->data << " ";
+    // Left
+    preOrder_traversal(root->left);
+    // Right
+    preOrder_traversal(root->right);
+}
+
+// L -> Node -> R
+void inOrder_traversal(TreeNode* root){
+    if (root == NULL) return;
+    // Left
+    inOrder_traversal(root->left);
+    // Node 
+    cout << root->data << " ";
+    // Right
+    inOrder_traversal(root->right);
+}
+
+// L -> R -> Node
+void postOrder_traversal(TreeNode* root){
+    if (root == NULL) return;
+    postOrder_traversal(root->left);
+    postOrder_traversal(root->right);
+    cout << root->data << " ";
+}
 int main(){
     // Init binary search tree
-    int arr[7] = {6, 2, 9, 1, 4, 8, 4};
+    int arr[7] = {6, 2, 9, 1, 4, 8, 10};
     TreeNode *root;
     root = initialization(root);
     for (int i = 0; i < 7; i++){
@@ -168,7 +197,17 @@ int main(){
     tmp = search_recursive(root, 19);
     if (tmp == NULL) cout << "Doesn't exist node 19" << endl;
     else cout << "Exist node 19" << endl;
-    // Remove node 2
-    root = remove(root, 2);
+    // Pre-order traversal
+    cout << "Pre-order traversal: "<< endl;
+    preOrder_traversal(root);
+    cout << endl;
+    // In-order traversal
+    cout << "In-order traversal: " << endl;
+    inOrder_traversal(root);
+    cout << endl;
+    // Post-order traversal
+    cout << "Post-order traversal:" << endl;
+    postOrder_traversal(root);
+    cout << endl;
     return 0;
 }
